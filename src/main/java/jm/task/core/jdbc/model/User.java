@@ -2,18 +2,21 @@ package jm.task.core.jdbc.model;
 import javax.persistence.*;
 
 
-@Table
+@Entity
+@Table (name = "users")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id")
     private Long id;
 
-    @Column
+    @Column (name = "name")
     private String name;
 
-    @Column
+    @Column (name = "lastName")
     private String lastName;
 
-    @Column
+    @Column (name = "age", length = 3)
     private Byte age;
 
     public User() {
@@ -60,6 +63,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "Пользователь со следующими данными был добавлен в БД: " + name + ", " + lastName + ", " + age;
+        return "Пользователь со следующими данными был добавлен в БД: " + id + ", " + name + ", " + lastName + ", " + age;
     }
 }
